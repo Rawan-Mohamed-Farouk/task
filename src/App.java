@@ -8,8 +8,7 @@ public class App {
 
         while (true) {
             System.out.println(
-                "\n1 Add  2 Find  3 List  4 Start 5 Complete 6 Exit "
-            );
+                "\n1 Add  2 Find  3 List  4 Start  5 Done  6 Exit");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -25,19 +24,36 @@ public class App {
                 System.out.print("Title: ");
                 String title = scanner.nextLine();
 
-                String severity = "";
-                double estimate = 0;
+                Severity severity = null;
+                Estimate estimate = null;
 
                 if (type.equalsIgnoreCase("bug")) {
                     System.out.print(
                         "Severity (low/medium/high): "
                     );
-                    severity = scanner.nextLine();
+                    String severityText = scanner.nextLine();
+
+                    if (severityText.equalsIgnoreCase("low")) {
+                        severity = Severity.LOW;
+                    } else if (severityText.equalsIgnoreCase("medium")) {
+                        severity = Severity.MEDIUM;
+                    } else if (severityText.equalsIgnoreCase("high")) {
+                        severity = Severity.HIGH;
+                    }
 
                 } else if (type.equalsIgnoreCase("feature")) {
-                    System.out.print("Estimate in hours: ");
-                    estimate = scanner.nextDouble();
-                    scanner.nextLine();
+                    System.out.print(
+                        "Estimate (small/medium/large): "
+                    );
+                    String estimateText = scanner.nextLine();
+
+                    if (estimateText.equalsIgnoreCase("small")) {
+                        estimate = Estimate.SMALL;
+                    } else if (estimateText.equalsIgnoreCase("medium")) {
+                        estimate = Estimate.MEDIUM;
+                    } else if (estimateText.equalsIgnoreCase("large")) {
+                        estimate = Estimate.LARGE;
+                    }
                 }
 
                 try {

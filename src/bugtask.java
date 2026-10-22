@@ -1,18 +1,17 @@
 package src;
 class BugTask extends Task {
-    private String severity;
+    private Severity severity;
 
-    BugTask(int id, String title, String severity) {
+    BugTask(int id, String title, Severity severity) {
         super(id, title);
 
-        if (severity == null ||
-            !severity.matches("(?i)low|medium|high")) {
+        if (severity == null){
             throw new IllegalArgumentException(
                 "Severity must be low, medium, or high");
         }
-        this.severity = severity.toLowerCase();
-    }
 
+        this.severity = severity;
+    }
     @Override
     void print() {
         super.print();

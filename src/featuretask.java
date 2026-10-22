@@ -1,13 +1,13 @@
 package src;
 class FeatureTask extends Task {
-    private double estimate;
+    private Estimate estimate;
 
-    FeatureTask(int id, String title, double estimate) {
+    FeatureTask(int id, String title, Estimate estimate) {
         super(id, title);
 
-        if (estimate <= 0) {
+        if (estimate == null) {
             throw new IllegalArgumentException(
-                "Estimate must be greater than zero");
+                "Estimate must be small, medium, or large and bigger than 0");
         }
 
         this.estimate = estimate;

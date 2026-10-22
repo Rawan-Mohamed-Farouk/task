@@ -4,8 +4,8 @@ class TaskFactory {
         String type,
         int id,
         String title,
-        String severity,
-        double estimate
+        Severity severity,
+        Estimate estimate
     ) {
         if (type.equalsIgnoreCase("bug")) {
             return new BugTask(id, title, severity);
