@@ -9,7 +9,7 @@ class SortByStatus implements TaskSortStrategy {
         List<Task> sortedTasks = new ArrayList<>(tasks);
 
         sortedTasks.sort(
-            Comparator.comparing(Task::isDone)
+            Comparator.comparing(Task::getStatus)
         );
 
         return sortedTasks;

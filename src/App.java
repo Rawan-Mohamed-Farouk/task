@@ -8,7 +8,7 @@ public class App {
 
         while (true) {
             System.out.println(
-                "\n1 Add  2 Find  3 List  4 Done  5 Exit"
+                "\n1 Add  2 Find  3 List  4 Start 5 Complete 6 Exit "
             );
 
             int choice = scanner.nextInt();
@@ -110,9 +110,16 @@ public class App {
                 int id = scanner.nextInt();
                 scanner.nextLine();
 
-                manager.complete(id);
+                manager.start(id);
 
             } else if (choice == 5) {
+                System.out.print("ID: ");
+                int id = scanner.nextInt();
+                scanner.nextLine();
+
+                manager.complete(id);
+
+            } else if (choice == 6) {
                 break;
 
             } else {

@@ -28,17 +28,30 @@ class TaskManager {
 
         for (Task task : sortedTasks) {
             task.print();
-        }
-    }
+        }}
+    void start(int id) {
+        Task task = find(id);
 
+        if (task == null) {
+            System.out.println("Not found");
+        } else if (task.getStatus() == Status.IN_PROGRESS) {
+            System.out.println("Task is already in progress");
+        } else if (task.getStatus() == Status.DONE) {
+            System.out.println("Task is already done");
+        } else {
+            task.start();
+            System.out.println("Task started");
+        }}
     void complete(int id) {
         Task task = find(id);
 
-        if (task != null) {
+        if (task == null) {
+            System.out.println("Not found");
+        } else if (task.getStatus() == Status.DONE) {
+            System.out.println("Task is already done");
+        } else if (task.getStatus() == Status.PENDING) {
+            System.out.println("Start the task before completing it");
+        } else {
             task.complete();
             System.out.println("Task completed");
-        } else {
-            System.out.println("Not found");
-        }
-    }
-}
+        }}}

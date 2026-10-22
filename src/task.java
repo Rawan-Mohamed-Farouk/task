@@ -1,12 +1,11 @@
 package src;
-
 import java.util.HashSet;
 import java.util.Set;
 
 class Task {
     int id;
     String title;
-    private boolean done = false;
+    private Status status = Status.PENDING;
     Set<String> tags = new HashSet<>();
 
     Task(int id, String title) {
@@ -18,17 +17,19 @@ class Task {
         tags.add(tag);
     }
 
-    void complete() {
-        done = true;
+    void start() {
+        status = Status.IN_PROGRESS;
     }
 
-    boolean isDone() {
-        return done;
+    void complete() {
+        status = Status.DONE;
+    }
+
+    Status getStatus() {
+        return status;
     }
 
     void print() {
         System.out.println(
-            id + " " + title + " " +
-            (done ? "Done" : "Pending") + " " + tags);
-    }
-}
+            id + " " + title + " " + status + " " + tags);
+    }}
