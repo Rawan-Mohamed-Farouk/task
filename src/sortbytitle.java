@@ -10,7 +10,7 @@ class SortByTitle implements TaskSortStrategy {
 
         sortedTasks.sort(
             Comparator.comparing(
-                task -> task.title.toLowerCase()
+                task -> task.getTitle().toLowerCase()
             )
         );
 

@@ -4,7 +4,7 @@ import java.util.Set;
 
 class Task {
     int id;
-    String title;
+    private String title;
     private Status status = Status.PENDING;
     Set<String> tags = new HashSet<>();
 
@@ -23,6 +23,10 @@ class Task {
 
     void complete() {
         status = Status.DONE;
+    }
+
+     String getTitle() {
+        return title;
     }
 
     Status getStatus() {
