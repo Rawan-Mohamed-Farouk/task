@@ -9,9 +9,8 @@ class SortByTitle implements TaskSortStrategy {
         List<Task> sortedTasks = new ArrayList<>(tasks);
 
         sortedTasks.sort(
-            Comparator.comparing(
-                task -> task.getTitle().toLowerCase()
-            )
+            Comparator.comparing(Task::getTitleLowerCase)
+            
         );
 
         return sortedTasks;

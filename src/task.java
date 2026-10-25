@@ -3,17 +3,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 class Task {
-    int id;
+    private int id;
     private String title;
     private Status status = Status.PENDING;
-    Set<String> tags = new HashSet<>();
+    private Set<String> tags = new HashSet<>();
 
     Task(int id, String title) {
         this.id = id;
         this.title = title;
     }
 
-    void addTag(String tag) {
+    protected void addTag(String tag) {
         tags.add(tag);
     }
 
@@ -24,9 +24,17 @@ class Task {
     void complete() {
         status = Status.DONE;
     }
+    
+    int getId() {
+        return id;
+    }
 
-     String getTitle() {
+    String getTitle() {
         return title;
+    }
+
+    String getTitleLowerCase() {
+        return title.toLowerCase();
     }
 
     Status getStatus() {

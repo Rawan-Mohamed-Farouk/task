@@ -8,12 +8,12 @@ class TaskManager {
     private Map<Integer, Task> tasks = new LinkedHashMap<>();
 
     void add(Task task) {
-        if (tasks.containsKey(task.id)) {
+        if (tasks.containsKey(task.getId())) {
             System.out.println("ID already exists");
             return;
         }
 
-        tasks.put(task.id, task);
+        tasks.put(task.getId(), task);
         System.out.println("Task added successfully");
     }
 
